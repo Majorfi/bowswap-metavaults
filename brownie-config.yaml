@@ -1,0 +1,22 @@
+# use Ganache's forked mainnet mode as the default network
+networks:
+  default: ftm-main-fork
+
+autofetch_sources: true
+
+# require OpenZepplin Contracts
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.4.2
+
+# path remapping to support OpenZepplin imports with NPM-style path
+compiler:
+  solc:
+    version: 0.8.10
+    optimizer:
+      runs: 800
+      details:
+        yul: False
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.4.2"
+
+dev_deployment_artifacts: true
