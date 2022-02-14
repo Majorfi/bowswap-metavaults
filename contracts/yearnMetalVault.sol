@@ -123,10 +123,9 @@ contract MetaVault {
         if (share > _shareToRedeem) {
             share = _shareToRedeem;
         }
-        uint256 redeemedValue = currentVault.withdraw(share, _recipient);
-
         shares[msg.sender] -= share;
         totalShares -= share;
+        uint256 redeemedValue = currentVault.withdraw(share, _recipient);
         return redeemedValue;
     }
 
