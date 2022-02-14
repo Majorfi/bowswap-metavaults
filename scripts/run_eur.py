@@ -27,6 +27,9 @@ PATH_3EUR_TO_IBEUR = [[1, "0xb9446c4Ef5EBE66268dA6700D26f96273DE3d571", 0, 0], [
 PATH_3EUR_TO_EURN = [[1, "0xb9446c4Ef5EBE66268dA6700D26f96273DE3d571", 1, 0], [0, "0x3Fb78e61784C9c637D560eDE23Ad57CA1294c14a", 1, 0]]
 
 
+# 0x80466c64868E1ab14a1Ddf27A676C3fcBE638Fe5
+
+
 curveEURSToken = "0x194eBd173F6cDacE046C53eACcE9B953F28411d1"
 curveEURSTokenWhale = "0x90bb609649e0451e5ad952683d64bd2d1f245840"
 
@@ -134,3 +137,6 @@ def main():
 	migrate(to = curveEURNToken, path = PATH_IBEUR_TO_EURN)
 	migrate(to = curve3EURToken, path = PATH_EURN_TO_3EUR)
 	migrate(to = curveEURSToken, path = PATH_3EUR_TO_EURS)
+	migrate(to = curveEURNToken, path = PATH_EURS_TO_EURN)
+	migrate(to = curveEURTToken, path = PATH_EURN_TO_EURT)
+
