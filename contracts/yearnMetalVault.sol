@@ -80,7 +80,7 @@ contract MetaVault {
         @return Shares in WEI
     */
     function getShares(address _owner) public view returns (uint256) {
-        return shares[_owner] * power / 1e18;
+        return shares[_owner] * power;
     }
 
     /**
@@ -111,7 +111,7 @@ contract MetaVault {
         _currentVaultWant.approve(address(currentVault), _amountToDeposit);
 		uint256 _shareForDepositor = currentVault.deposit(_amountToDeposit);
 
-		shares[_recipient] += _shareForDepositor;
+		shares[_recipient] += _shareForDepositor / power;
         totalShares = totalShares + _shareForDepositor;
 		return _shareForDepositor;
 	}
@@ -157,6 +157,8 @@ contract MetaVault {
         } else {
             evolution = newTotalShare * previousDecimals / previousTotalShare;
         }
+        // power = power * previousTotalShare / newTotalShare;
+        // power = (newPPS - previonsPPS) / previonsPPS;
         power = power * evolution / 1e18;
     }
 }
